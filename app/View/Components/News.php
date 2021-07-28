@@ -2,10 +2,10 @@
 
 namespace App\View\Components;
 
-use App\Models\Article\ArticleCategory;
+use App\Models\Article\Article;
 use Illuminate\View\Component;
 
-class Nav extends Component
+class News extends Component
 {
     /**
      * Create a new component instance.
@@ -24,8 +24,7 @@ class Nav extends Component
      */
     public function render()
     {
-        $article_categories = ArticleCategory::get();
-        $project_categories = null;
-        return view('components.nav', compact('article_categories'));
+        $articles = Article::take(3)->get();
+        return view('components.news', compact('articles'));
     }
 }

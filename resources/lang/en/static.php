@@ -8,4 +8,9 @@ return [
     'title' => 'Title',
     'logo' => 'Logo',
     'description' => 'Description',
+    'show_more' => 'Show More',
+    'show_project' => 'Show Project',
+    'articles' => 'Articles',
+    'projects' => 'Projects',
+    'contacts' => 'Contacts',
 ];
