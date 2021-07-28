@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Article\ArticleCategory;
 use Illuminate\View\Component;
 
 class Nav extends Component
@@ -23,6 +24,8 @@ class Nav extends Component
      */
     public function render()
     {
-        return view('components.nav');
+        $article_categories = ArticleCategory::get();
+        $project_categories = null;
+        return view('components.nav', compact('article_categories'));
     }
 }
