@@ -24,7 +24,7 @@ class News extends Component
      */
     public function render()
     {
-        $articles = Article::get();
+        $articles = Article::take(3)->get();
         return view('components.news', compact('articles'));
     }
 }

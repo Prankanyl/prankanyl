@@ -8,4 +8,5 @@ return [
     'title' => 'Title',
     'logo' => 'Logo',
     'description' => 'Description',
+    'show_more' => 'Show More',
 ];
