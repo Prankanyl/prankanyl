@@ -13,4 +13,6 @@ return [
     'articles' => 'Articles',
     'projects' => 'Projects',
     'contacts' => 'Contacts',
+
+    'what_are_we_doing' => 'What are we doing?',
 ];
