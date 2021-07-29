@@ -17,4 +17,5 @@ Route::group([
     Route::crud('article', 'ArticleCrudController');
     Route::crud('article-category', 'ArticleCategoryCrudController');
     Route::crud('site-information', 'SiteInformationCrudController');
+    Route::crud('social-network', 'SocialNetworkCrudController');
 }); // this should be the absolute last line of this file
