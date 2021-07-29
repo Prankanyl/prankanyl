@@ -15,4 +15,5 @@ return [
     'contacts' => 'Contacts',
 
     'what_are_we_doing' => 'What are we doing?',
+    'connected_social' => 'Get connected with us on social networks:',
 ];

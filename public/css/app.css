@@ -49,3 +49,10 @@
 .main-services p{
     padding: 0 10px;
 }
+
+/* footer */
+
+.social-networks a{
+    text-decoration: none;
+}
+

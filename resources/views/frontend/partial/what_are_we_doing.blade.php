@@ -7,7 +7,7 @@
             @forelse($site_information as $info)
             <div class="col-md-4">
                 <div class="main-services">
-                    <i class="{{ $info->icon }}"></i>
+                    <i class="la {{ $info->icon }}"></i>
                     <h4>{{ $info->title }}</h4>
                     <p>
                         {{ $info->description }}

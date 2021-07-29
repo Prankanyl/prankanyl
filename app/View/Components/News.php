@@ -7,24 +7,25 @@ use Illuminate\View\Component;
 
 class News extends Component
 {
+    public $id;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($id)
     {
-        //
+        $this->id = $id;
     }
 
     /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
+     * @param int $id
+     * @return \Closure|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Support\Htmlable|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|string
      */
     public function render()
     {
-        $articles = Article::take(3)->get();
+        $articles = Article::whereId($this->id)->get();
         return view('components.news', compact('articles'));
     }
 }

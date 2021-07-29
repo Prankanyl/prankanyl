@@ -2,10 +2,12 @@
 
 namespace App\View\Components;
 
+use App\Models\Article\ArticleCategory;
 use Illuminate\View\Component;
 
 class Footer extends Component
 {
+
     /**
      * Create a new component instance.
      *
@@ -23,6 +25,10 @@ class Footer extends Component
      */
     public function render()
     {
-        return view('components.footer');
+        $article_categories = ArticleCategory::take(5)->get();
+//        $project_categories = ProjectCategory::take(5)->get();
+        $project_categories = [];
+        $socials = [];
+        return view('components.footer', compact('article_categories', 'project_categories', 'socials'));
     }
 }
