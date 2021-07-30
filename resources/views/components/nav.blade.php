@@ -23,13 +23,13 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {{ __('static.projects') }}
                     </a>
-{{--                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
-{{--                        @forelse($project_categories as $category)--}}
-{{--                            <li><a class="dropdown-item" href="{{ route('list-project-categories', ['slug' => $category->slug]) }}">{{ $category->title }}</a></li>--}}
-{{--                        <li><hr class="dropdown-divider"></li>
-                            @empty--}}
-{{--                        @endforelse--}}
-{{--                    </ul>--}}
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @forelse($project_categories as $category)
+                            <li><a class="dropdown-item" href="{{ route('list-project-categories', ['slug' => $category->slug]) }}">{{ $category->title }}</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        @empty
+                        @endforelse
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">{{ __('static.contacts') }}</a>

@@ -25,7 +25,7 @@ class Nav extends Component
     public function render()
     {
         $article_categories = ArticleCategory::get();
-        $project_categories = null;
-        return view('components.nav', compact('article_categories'));
+        $project_categories = [];
+        return view('components.nav', compact('article_categories', 'project_categories'));
     }
 }
