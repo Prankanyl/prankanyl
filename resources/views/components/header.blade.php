@@ -40,7 +40,7 @@
 <div class="container-fluid header">
     <div class="row">
         <div class="col-lg-6">
-            <h1 class="p-5 pb-3 d-flex justify-content-center">{{ $setting->title }}</h1>
+            <h1 class="p-5 pb-3 d-flex justify-content-center site-title">{{ $setting->title }}</h1>
             <p class="d-flex justify-content-center">{!! $setting->mutate_description !!}</p>
             <div class="d-flex justify-content-center">
                 <a href="#" class="btn btn-primary">{{ __('static.show_project') }}</a>
