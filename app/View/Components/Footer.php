@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use App\Models\Article\ArticleCategory;
+use App\Models\ProjectCategory;
 use App\Models\SocialNetwork;
 use Illuminate\View\Component;
 
@@ -27,8 +28,7 @@ class Footer extends Component
     public function render()
     {
         $article_categories = ArticleCategory::take(5)->get();
-//        $project_categories = ProjectCategory::take(5)->get();
-        $project_categories = [];
+        $project_categories = ProjectCategory::take(5)->get();
         $socials = SocialNetwork::get();
         return view('components.footer', compact('article_categories', 'project_categories', 'socials'));
     }
