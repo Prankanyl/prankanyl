@@ -41,7 +41,7 @@ class CreateProjectTypesTable extends Migration
         ];
 
         foreach ($data as $single){
-            \App\Models\ProjectType::create($single);
+            \App\Models\Project\ProjectType::create($single);
         }
     }
 

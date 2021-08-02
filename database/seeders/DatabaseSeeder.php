@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Article\ArticleCategory;
+use App\Models\Project\DevelopmentTool;
+use App\Models\Project\Project;
 use App\Models\ProjectCategory;
 use Illuminate\Database\Seeder;
 
@@ -15,12 +17,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
         $this->call([
             AdminSeeder::class,
             ArticleCategorySeeder::class,
             ArticleSeeder::class,
+
             ProjectCategorySeeder::class,
+            ProjectTypeSeeder::class,
+            DevelopmentToolSeeder::class,
+//            ProjectSeeder::class,
         ]);
     }
 }

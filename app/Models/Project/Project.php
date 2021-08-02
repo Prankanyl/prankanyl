@@ -10,12 +10,12 @@ use Spatie\Sluggable\SlugOptions;
 
 class Project extends Model
 {
-    use CrudTrait, HasSlug;
+    use CrudTrait, HasSlug, HasFactory;
 
     protected $table = 'projects';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
-    protected $guarded = ['id'];
+    protected $guarded = [];
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
