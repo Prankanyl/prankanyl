@@ -10,7 +10,7 @@
             <a href="#" class="btn btn-primary ms-4 mt-2">{{ __('static.show_more') }}</a>
         </div>
         <div class="col-lg-3 .col-sm-8 d-flex justify-content-center">
-            <img src="{{ $article->image }}" class="" alt="...">
+            <img src="{{ $article->mutate_image }}" class="" alt="...">
         </div>
     </div>
 </div>
