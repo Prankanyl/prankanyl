@@ -82,7 +82,7 @@ class ArticleCrudController extends CrudController
     {
         return [
             [
-                'name' => 'image',
+                'name' => 'mutate_image',
                 'label' => __('static.image'),
                 'type' => 'image',
             ],
