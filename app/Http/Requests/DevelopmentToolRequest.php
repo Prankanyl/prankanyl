@@ -26,7 +26,13 @@ class DevelopmentToolRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'title' => 'required|min:5|max:255',
+            'short_description' => 'required|min:5|max:1000',
+            'long_description' => 'required|min:5|max:100000',
+            'parent_id' => 'nullable',
+            'version' => 'nullable',
+            'link' => 'nullable',
+            'logo' => 'nullable',
         ];
     }
 

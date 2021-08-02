@@ -49,6 +49,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'development_tool' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/development-tool'),
+            'url' => '/storage/development-tool',
+            'visibility' => 'public',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

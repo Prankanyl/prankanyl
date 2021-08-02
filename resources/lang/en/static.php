@@ -24,4 +24,7 @@ return [
     'category' => 'Category',
     'categories' => 'Categories',
     'color' => 'Color',
+    'parent' => 'Parent',
+    'version' => 'Version',
+    'link' => 'Link',
 ];

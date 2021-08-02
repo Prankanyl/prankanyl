@@ -98,6 +98,5 @@ class Article extends Model
 
             $this->attributes[$attribute_name] = $filename;
         }
-        app()->runningInConsole();
     }
 }
