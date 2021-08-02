@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Project;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
