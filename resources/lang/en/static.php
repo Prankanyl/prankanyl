@@ -22,5 +22,6 @@ return [
 
     'place' => 'Place',
     'category' => 'Category',
+    'categories' => 'Categories',
     'color' => 'Color',
 ];
