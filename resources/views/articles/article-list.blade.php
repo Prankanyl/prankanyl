@@ -31,7 +31,7 @@
                                 <img src="{{ $item->mutate_image }}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $item->title }}</h5>
-                                    <p class="card-text">{{ $item->mutate_short_description }}</p>
+                                    <p class="card-text">{!! $item->mutate_short_description !!}</p>
                                     <p class="card-text"><small class="text-muted">{{ $item->created_at->diffForHumans() }}</small></p>
                                 </div>
                             </div>
