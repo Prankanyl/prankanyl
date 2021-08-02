@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Project;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
-use App\Models\ProjectCategory;
+use App\Models\Project\ProjectCategory;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller

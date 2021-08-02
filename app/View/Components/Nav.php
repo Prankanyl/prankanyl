@@ -3,7 +3,7 @@
 namespace App\View\Components;
 
 use App\Models\Article\ArticleCategory;
-use App\Models\ProjectCategory;
+use App\Models\Project\ProjectCategory;
 use Illuminate\View\Component;
 
 class Nav extends Component
