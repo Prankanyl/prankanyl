@@ -12,4 +12,9 @@ class HomeController extends Controller
         $site_information = SiteInformation::get();
         return view('frontend.home', compact('site_information'));
     }
+
+    public function contacts()
+    {
+        return view('frontend.contacts');
+    }
 }
