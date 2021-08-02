@@ -27,14 +27,14 @@ class DevelopmentToolSeeder extends Seeder
                 'slug' => str_slug($var),
             ],
             [
-                'title' => $var = 'Strategy',
+                'title' => $var = 'Laravel',
                 'parent_id' => 1,
                 'short_description' => 'short_description',
                 'long_description' => 'long_description',
                 'slug' => str_slug($var),
             ],
             [
-                'title' => $var = 'Sports',
+                'title' => $var = 'Unreal Engine',
                 'parent_id' => 2,
                 'short_description' => 'short_description',
                 'long_description' => 'long_description',
