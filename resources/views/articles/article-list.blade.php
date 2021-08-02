@@ -15,6 +15,9 @@
                             <li>{{ $item->title }}</li>
                         </a>
                     @empty
+                    <p>
+                        {{ __('static.not_found') }}
+                    </p>
                     @endforelse
                         <a href="{{ route('article-list') }}">
                             <li>{{ __('static.show_all') }}</li>
@@ -38,6 +41,9 @@
                         </div>
                     </a>
                 @empty
+                <p>
+                    {{ __('static.not_found') }}
+                </p>
                 @endforelse
                 </div>
                 @if($articles->links())

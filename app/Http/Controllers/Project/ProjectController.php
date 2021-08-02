@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Project;
 
 use App\Http\Controllers\Controller;
+use App\Models\Project\DevelopmentTool;
 use App\Models\Project\Project;
 use App\Models\Project\ProjectCategory;
+use App\Models\Project\ProjectType;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -14,8 +16,10 @@ class ProjectController extends Controller
     public function index()
     {
         $categories = ProjectCategory::get();
+        $types = ProjectType::get();
+        $tools = DevelopmentTool::get();
         $projects = Project::with('category')->orderByDesc('id')->paginate(9);
-        return view('projects.project-list', compact('categories', 'projects'));
+        return view('projects.project-list', compact('categories', 'projects', 'tools', 'types'));
     }
 
     public function projectCategory($category_slug)

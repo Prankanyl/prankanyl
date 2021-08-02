@@ -16,6 +16,9 @@ return [
     'articles' => 'Articles',
     'projects' => 'Projects',
     'contacts' => 'Contacts',
+    'not_found' => 'Not Found ! :(',
+    'select_one' => 'Select one',
+    'sort' => 'Sort',
 
     'what_are_we_doing' => 'What are we doing?',
     'connected_social' => 'Get connected with us on social networks:',
