@@ -90,9 +90,6 @@ class ArticleCrudController extends CrudController
                 'name' => 'category',
                 'label' => __('static.category'),
                 'type' => 'relationship',
-//                'entry' => 'article_category_id',
-//                'attribute' => 'title',
-//                'model' => ArticleCategory::class,
             ],
             [
                 'name' => 'title',
