@@ -13,10 +13,12 @@
                         {{ __('static.articles') }}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        @foreach($article_categories as $category)
-                        <li><a class="dropdown-item" href="{{ route('list-article-categories', ['slug' => $category->slug]) }}">{{ $category->title }}</a></li>
+                        @forelse($article_categories as $category)
+                        <li><a class="dropdown-item" href="{{ route('article-category-list', ['category_slug' => $category->slug]) }}">{{ $category->title }}</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        @endforeach
+                        @empty
+                        @endforelse
+                        <li><a class="dropdown-item" href="{{ route('article-list') }}">{{ __('static.show_all') }}</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -25,10 +27,11 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         @forelse($project_categories as $category)
-                            <li><a class="dropdown-item" href="{{ route('list-project-categories', ['slug' => $category->slug]) }}">{{ $category->title }}</a></li>
+                        <li><a class="dropdown-item" href="{{ route('project-category-list', ['category_slug' => $category->slug]) }}">{{ $category->title }}</a></li>
                         <li><hr class="dropdown-divider"></li>
                         @empty
                         @endforelse
+                        <li><a class="dropdown-item" href="{{ route('project-list') }}">{{ __('static.show_all') }}</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">

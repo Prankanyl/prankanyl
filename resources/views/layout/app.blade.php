@@ -9,10 +9,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ $setting->title }}</title>
-    @include('layout.partial.script')
-    @include('layout.partial.style')
-    @yield('script')
-    @yield('style')
+    @include('layout.partial.scripts')
+    @include('layout.partial.styles')
+    @yield('scripts')
+    @yield('styles')
 </head>
 <body>
 <div>

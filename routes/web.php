@@ -1,11 +1,21 @@
 <?php
 
+use App\Http\Controllers\Article\ArticleController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Project\ProjectController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/contacts', [\App\Http\Controllers\HomeController::class, 'contacts'])->name('contacts');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/contacts', [HomeController::class, 'contacts'])->name('contacts');
 
+Route::group(['prefix' => 'article'], function () {
+    Route::get('/', [ArticleController::class, 'index'])->name('article-list');
+    Route::get('/{category_slug}', [ArticleController::class, 'articleCategory'])->name('article-category-list');
+    Route::get('/{category_slug}/{slug}', [ArticleController::class, 'articleDetail'])->name('article-detail');
+});
 
-Route::get('/article/{slug}', [\App\Http\Controllers\ArticleController::class, 'categories'])->name('list-article-categories');
-
-Route::get('/project/{slug}', [\App\Http\Controllers\ProjectController::class, 'categories'])->name('list-project-categories');
+Route::group(['prefix' => 'project'], function () {
+    Route::get('/', [ProjectController::class, 'index'])->name('project-list');
+    Route::get('/{category_slug}', [ProjectController::class, 'projectCategory'])->name('project-category-list');
+    Route::get('/{category_slug}/{slug}', [ProjectController::class, 'projectDetail'])->name('project-detail');
+});
