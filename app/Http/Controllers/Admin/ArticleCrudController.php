@@ -3,21 +3,29 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\ArticleRequest;
+use App\Models\Article\Article;
+use App\Models\Article\ArticleCategory;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
+use Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
+use Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
+use Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
+use Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+use Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
+use Backpack\CRUD\app\Library\CrudPanel\CrudPanel;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
  * Class ArticleCrudController
  * @package App\Http\Controllers\Admin
- * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
+ * @property-read CrudPanel $crud
  */
 class ArticleCrudController extends CrudController
 {
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use ListOperation;
+    use CreateOperation;
+    use UpdateOperation;
+    use DeleteOperation;
+    use ShowOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -26,7 +34,7 @@ class ArticleCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Article::class);
+        CRUD::setModel(Article::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/article');
         CRUD::setEntityNameStrings('article', 'articles');
     }
@@ -39,13 +47,9 @@ class ArticleCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // columns
-
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
-         */
+        CRUD::addColumns(
+            $this->getColumns()
+        );
     }
 
     /**
@@ -58,13 +62,9 @@ class ArticleCrudController extends CrudController
     {
         CRUD::setValidation(ArticleRequest::class);
 
-        CRUD::setFromDb(); // fields
-
-        /**
-         * Fields can be defined using the fluent syntax or array syntax:
-         * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number']));
-         */
+        CRUD::addFields(
+            $this->getFields()
+        );
     }
 
     /**
@@ -76,5 +76,84 @@ class ArticleCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    public function getColumns()
+    {
+        return [
+            [
+                'name' => 'image',
+                'label' => __('static.image'),
+                'type' => 'image',
+            ],
+            [
+                'name' => 'category',
+                'label' => __('static.category'),
+                'type' => 'relationship',
+//                'entry' => 'article_category_id',
+//                'attribute' => 'title',
+//                'model' => ArticleCategory::class,
+            ],
+            [
+                'name' => 'title',
+                'label' => __('static.title'),
+            ],
+            [
+                'name' => 'short_description',
+                'label' => __('static.description'),
+            ],
+            [
+                'name' => 'place',
+                'label' => __('static.place'),
+            ],
+        ];
+    }
+
+    public function getFields()
+    {
+        return [
+            [
+                'name' => 'user_id',
+                'type' => 'hidden',
+                'value' => backpack_user()->getAuthIdentifier()
+            ],
+            [
+                'name' => 'image',
+                'label' => __('static.image'),
+                'type' => 'image',
+            ],
+            [
+                'name' => 'category',
+                'label' => __('static.category'),
+                'type' => 'relationship',
+                'entry' => 'article_category_id',
+                'attribute' => 'title',
+                'model' => ArticleCategory::class,
+            ],
+            [
+                'name' => 'title',
+                'label' => __('static.title'),
+            ],
+            [
+                'name' => 'short_description',
+                'label' => __('static.short_description'),
+                'type' => 'ckeditor',
+            ],
+            [
+                'name' => 'long_description',
+                'label' => __('static.long_description'),
+                'type' => 'ckeditor',
+            ],
+            [
+                'name' => 'place',
+                'label' => __('static.place'),
+                'type' => 'hidden',
+            ],
+            [
+                'name' => 'color',
+                'label' => __('static.color'),
+                'type' => 'color_picker'
+            ],
+        ];
     }
 }

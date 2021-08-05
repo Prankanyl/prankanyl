@@ -23,7 +23,7 @@ class ArticleFactory extends Factory
     public function definition()
     {
         return [
-            'category_id' => $this->faker->numberBetween(1, 3),
+            'article_category_id' => $this->faker->numberBetween(1, 3),
             'title' => $var = $this->faker->name,
             'short_description' => $this->faker->paragraph(15),
             'long_description' => $this->faker->paragraph(25),

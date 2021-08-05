@@ -18,4 +18,8 @@ Route::group([
     Route::crud('article-category', 'ArticleCategoryCrudController');
     Route::crud('site-information', 'SiteInformationCrudController');
     Route::crud('social-network', 'SocialNetworkCrudController');
+    Route::crud('project', 'ProjectCrudController');
+    Route::crud('project-category', 'ProjectCategoryCrudController');
+    Route::crud('project-type', 'ProjectTypeCrudController');
+    Route::crud('development-tool', 'DevelopmentToolCrudController');
 }); // this should be the absolute last line of this file

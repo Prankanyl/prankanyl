@@ -29,7 +29,7 @@
                     </h6>
                     @forelse($article_categories as $item)
                         <p>
-                            <a href="{{ route('list-project-categories', ['slug' => $item->slug]) }}">{{ $item->title }}</a>
+                            <a href="{{ route('article-category-list', ['category_slug' => $item->slug]) }}">{{ $item->title }}</a>
                         </p>
                         @empty
                     @endforelse
@@ -40,7 +40,7 @@
                     </h6>
                     @forelse($project_categories as $item)
                         <p>
-                            <a href="{{ route('list-project-categories', ['slug' => $item->slug]) }}">{{ $item->title }}</a>
+                            <a href="{{ route('project-category-list', ['category_slug' => $item->slug]) }}">{{ $item->title }}</a>
                         </p>
                     @empty
                     @endforelse
