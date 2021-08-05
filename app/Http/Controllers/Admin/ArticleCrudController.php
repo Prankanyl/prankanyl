@@ -82,7 +82,7 @@ class ArticleCrudController extends CrudController
     {
         return [
             [
-                'name' => 'image',
+                'name' => 'mutate_image',
                 'label' => __('static.image'),
                 'type' => 'image',
             ],
@@ -90,16 +90,13 @@ class ArticleCrudController extends CrudController
                 'name' => 'category',
                 'label' => __('static.category'),
                 'type' => 'relationship',
-//                'entry' => 'article_category_id',
-//                'attribute' => 'title',
-//                'model' => ArticleCategory::class,
             ],
             [
                 'name' => 'title',
                 'label' => __('static.title'),
             ],
             [
-                'name' => 'short_description',
+                'name' => 'mutate_short_description',
                 'label' => __('static.description'),
             ],
             [
@@ -118,17 +115,15 @@ class ArticleCrudController extends CrudController
                 'value' => backpack_user()->getAuthIdentifier()
             ],
             [
-                'name' => 'image',
+                'name' => 'mutate_image',
                 'label' => __('static.image'),
                 'type' => 'image',
             ],
             [
-                'name' => 'category',
+                'name' => 'article_category_id',
                 'label' => __('static.category'),
-                'type' => 'relationship',
-                'entry' => 'article_category_id',
-                'attribute' => 'title',
-                'model' => ArticleCategory::class,
+                'type' => 'select_from_array',
+                'options' => ArticleCategory::pluck('title', 'id'),
             ],
             [
                 'name' => 'title',
@@ -153,6 +148,11 @@ class ArticleCrudController extends CrudController
                 'name' => 'color',
                 'label' => __('static.color'),
                 'type' => 'color_picker'
+            ],
+            [
+                'name' => 'place',
+                'type' => 'hidden',
+                'value' => 'news'
             ],
         ];
     }

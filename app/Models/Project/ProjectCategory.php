@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Project;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class ProjectType extends Model
+class ProjectCategory extends Model
 {
     use CrudTrait, HasSlug;
 
-    protected $table = 'project_types';
+    protected $table = 'project_categories';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];

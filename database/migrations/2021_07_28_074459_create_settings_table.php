@@ -22,7 +22,7 @@ class CreateSettingsTable extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('location')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('background_color');
             $table->string('text_color');
             $table->boolean('active')->default(0);

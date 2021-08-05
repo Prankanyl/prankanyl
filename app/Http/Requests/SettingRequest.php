@@ -26,7 +26,17 @@ class SettingRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+             'title' => 'required|min:5|max:255',
+             'favicon' => 'required',
+             'logo' => 'required',
+             'email' => 'required|email',
+             'phone' => 'required',
+             'address' => 'required|min:5|max:255',
+             'location' => 'nullable|min:5|max:255',
+             'description' => 'nullable|min:5|max:100000',
+             'background_color' => 'nullable',
+             'text_color' => 'nullable',
+             'active' => 'required|boolean',
         ];
     }
 

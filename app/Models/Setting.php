@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 
 class Setting extends Model
 {
@@ -22,6 +25,7 @@ class Setting extends Model
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
+    protected $disk = 'setting';
 
     public function getMutateDescriptionAttribute()
     {
@@ -30,11 +34,87 @@ class Setting extends Model
 
     public function getMutateLogoAttribute()
     {
-        return (null == $this->logo) ? false : '/images/static/'.$this->logo;
+        if ($this->id == 1){
+            return (null != $this->favicon) ? '/images/static/'.$this->logo : null;
+        }
+        return (null != $this->logo) ? '/storage/setting/'.$this->logo : null;
     }
 
     public function getMutateFaviconAttribute()
     {
-        return (null == $this->favicon) ? false : '/images/static/'.$this->favicon;
+        if ($this->id == 1){
+            return (null != $this->favicon) ? '/images/static/'.$this->favicon : null;
+        }
+        return (null != $this->favicon) ? '/storage/setting/'.$this->favicon : null;
+    }
+
+    /**
+     * @param $value
+     */
+    public function setFaviconAttribute($value)
+    {
+        $attribute_name = "favicon";
+
+        // if the image was erased
+        if (null == $value) {
+            // delete the image from disk
+            Storage::disk($this->disk)->delete($this->{$attribute_name});
+
+            // set null in the database column
+            $this->attributes[$attribute_name] = null;
+        }
+
+        // if a base64 was sent, store it in the db
+        if (Str::startsWith($value, 'data:image'))
+        {
+            // 0. Make the image
+            $image = Image::make($value)->encode('jpg', 90);
+
+            // 1. Generate a filename.
+            $filename = str_slug($this->first_name.'-'.$this->last_name).'-'.time().'.jpg';
+
+            // 2. Store the image on disk.
+            Storage::disk($this->disk)->put($filename, $image->stream());
+
+            // 3. Delete the previous image, if there was one.
+            Storage::disk($this->disk)->delete($this->{$attribute_name});
+
+            $this->attributes[$attribute_name] = $filename;
+        }
+    }
+
+    /**
+     * @param $value
+     */
+    public function setLogoAttribute($value)
+    {
+        $attribute_name = "logo";
+
+        // if the image was erased
+        if (null == $value) {
+            // delete the image from disk
+            Storage::disk($this->disk)->delete($this->{$attribute_name});
+
+            // set null in the database column
+            $this->attributes[$attribute_name] = null;
+        }
+
+        // if a base64 was sent, store it in the db
+        if (Str::startsWith($value, 'data:image'))
+        {
+            // 0. Make the image
+            $image = Image::make($value)->encode('jpg', 90);
+
+            // 1. Generate a filename.
+            $filename = str_slug($this->first_name.'-'.$this->last_name).'-'.time().'.jpg';
+
+            // 2. Store the image on disk.
+            Storage::disk($this->disk)->put($filename, $image->stream());
+
+            // 3. Delete the previous image, if there was one.
+            Storage::disk($this->disk)->delete($this->{$attribute_name});
+
+            $this->attributes[$attribute_name] = $filename;
+        }
     }
 }

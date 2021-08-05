@@ -21,7 +21,7 @@ class CreateArticlesTable extends Migration
             $table->string('image')->nullable();
             $table->text('short_description');
             $table->text('long_description')->nullable();
-            $table->enum('place', ['home', 'contact', 'news'])->default('news');
+            $table->enum('place', ['home', 'contact', 'news'])->nullable()->default('news');
             $table->string('color')->nullable()->default('white');
             $table->string('slug')->unique()->nullable();
             $table->timestamps();

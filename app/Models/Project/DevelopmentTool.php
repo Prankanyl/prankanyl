@@ -1,36 +1,26 @@
 <?php
 
-namespace App\Models\Article;
+namespace App\Models\Project;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class Article extends Model
+class DevelopmentTool extends Model
 {
-    use CrudTrait, HasFactory, HasSlug;
+    use CrudTrait, HasSlug;
 
-    /*
-    |--------------------------------------------------------------------------
-    | GLOBAL VARIABLES
-    |--------------------------------------------------------------------------
-    */
-
-    protected $table = 'articles';
+    protected $table = 'development_tools';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
-    protected $guarded = [];
+    protected $guarded = ['id'];
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
-
-    protected $with = ['category'];
 
     /**
      * @return SlugOptions
@@ -42,26 +32,9 @@ class Article extends Model
             ->saveSlugsTo('slug');
     }
 
-    /**
-     * @return BelongsTo
-     */
-    public function category(){
-        return $this->belongsTo(ArticleCategory::class, 'article_category_id', 'id');
-    }
-
-    /**
-     * @return bool
-     */
-    public function getMutateImageAttribute(){
-        return (null != $this->image) ? '/storage/article/'.$this->image : config('default.article');
-    }
-
-    public function getMutateShortDescriptionAttribute(){
-        return str_limit(strip_tags($this->short_description), 235);
-    }
-
-    public function getMutateLongDescriptionAttribute(){
-        return strip_tags($this->long_description);
+    public function getMutateLogoAttribute()
+    {
+        return (null != $this->logo) ? $this->logo : null;
     }
 
     /**
@@ -69,8 +42,8 @@ class Article extends Model
      */
     public function setImageAttribute($value)
     {
-        $attribute_name = "image";
-        $disk = 'article';
+        $attribute_name = "logo";
+        $disk = 'development-tool';
 
         // if the image was erased
         if (null == $value) {

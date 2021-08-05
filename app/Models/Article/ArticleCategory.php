@@ -20,7 +20,7 @@ class ArticleCategory extends Model
     protected $table = 'article_categories';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
-    protected $guarded = ['id'];
+    protected $guarded = [];
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];

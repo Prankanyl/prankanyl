@@ -1,20 +1,21 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Project;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class DevelopmentTool extends Model
+class Project extends Model
 {
-    use CrudTrait, HasSlug;
+    use CrudTrait, HasSlug, HasFactory;
 
-    protected $table = 'development_tools';
+    protected $table = 'projects';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
-    protected $guarded = ['id'];
+    protected $guarded = [];
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];

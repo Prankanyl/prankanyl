@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class ProjectCategorySeeder extends Seeder
+class ProjectTypeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,25 +15,25 @@ class ProjectCategorySeeder extends Seeder
     {
         $data = [
             [
-                'title' => $var = 'Website',
+                'title' => $var = 'MMO',
                 'slug' => str_slug($var),
             ],
             [
-                'title' => $var = 'Games',
+                'title' => $var = 'RPG',
                 'slug' => str_slug($var),
             ],
             [
-                'title' => $var = 'IOS',
+                'title' => $var = 'Strategy',
                 'slug' => str_slug($var),
             ],
             [
-                'title' => $var = 'Android',
+                'title' => $var = 'Sports',
                 'slug' => str_slug($var),
             ],
         ];
 
         foreach ($data as $single){
-            \App\Models\Project\ProjectCategory::create($single);
+            \App\Models\Project\ProjectType::create($single);
         }
     }
 }

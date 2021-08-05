@@ -42,6 +42,27 @@ return [
             'visibility' => 'public',
         ],
 
+        'article' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/article'),
+            'url' => '/storage/article',
+            'visibility' => 'public',
+        ],
+
+        'development_tool' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/development-tool'),
+            'url' => '/storage/development-tool',
+            'visibility' => 'public',
+        ],
+
+        'setting' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/static'),
+            'url' => '/storage/static',
+            'visibility' => 'public',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

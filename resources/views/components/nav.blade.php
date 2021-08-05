@@ -35,7 +35,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">{{ __('static.contacts') }}</a>
+                    <a class="nav-link" href="{{ route('contacts') }}">{{ __('static.contacts') }}</a>
                 </li>
             </ul>
             <div class="pe-3">
