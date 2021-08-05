@@ -5,4 +5,10 @@ return [
         'general' => 'General',
         'additional' => 'Additional',
     ],
+
+    'status' => [
+        'status' => 'Status',
+        'active' => 'Active',
+        'passive' => 'Passive',
+    ],
 ];

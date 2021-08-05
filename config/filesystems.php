@@ -56,6 +56,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'setting' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/static'),
+            'url' => '/storage/static',
+            'visibility' => 'public',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

@@ -2,11 +2,17 @@
 
 return [
     // Default title
+    'site_title' => 'Site Title',
     'home' => 'Home',
     'login' => 'Login',
     'image' => 'Image',
+    'favicon' => 'Favicon',
     'title' => 'Title',
     'logo' => 'Logo',
+    'phone' => 'Phone',
+    'address' => 'Address',
+    'location' => 'Location',
+    'email' => 'Email',
     'description' => 'Description',
     'short_description' => 'Short Description',
     'long_description' => 'Long Description',
@@ -19,6 +25,8 @@ return [
     'not_found' => 'Not Found ! :(',
     'select_one' => 'Select one',
     'sort' => 'Sort',
+    'background_color' => 'Background color',
+    'text_color' => 'Text color',
 
     'what_are_we_doing' => 'What are we doing?',
     'connected_social' => 'Get connected with us on social networks:',

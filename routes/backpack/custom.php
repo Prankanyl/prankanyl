@@ -16,6 +16,7 @@ Route::group([
 ], function () { // custom admin routes
     Route::crud('article', 'ArticleCrudController');
     Route::crud('article-category', 'ArticleCategoryCrudController');
+    Route::crud('setting', 'SettingCrudController');
     Route::crud('site-information', 'SiteInformationCrudController');
     Route::crud('social-network', 'SocialNetworkCrudController');
     Route::crud('project', 'ProjectCrudController');
