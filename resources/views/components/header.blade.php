@@ -43,8 +43,8 @@
             <h1 class="p-5 pb-3 d-flex justify-content-center site-title">{{ $setting->title }}</h1>
             <p class="d-flex justify-content-center">{!! $setting->mutate_description !!}</p>
             <div class="d-flex justify-content-center">
-                <a href="#" class="btn btn-primary">{{ __('static.show_project') }}</a>
-                <a href="#" class="btn btn-primary ms-3">{{ __('static.show_project') }}</a>
+                <a href="{{ route('article-list') }}" class="btn btn-primary">{{ __('static.show_article') }}</a>
+                <a href="{{ route('project-list') }}" class="btn btn-primary ms-3">{{ __('static.show_project') }}</a>
             </div>
         </div>
         <div class="col-lg-6 d-flex justify-content-center">

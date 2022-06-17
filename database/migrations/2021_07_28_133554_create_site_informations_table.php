@@ -21,31 +21,6 @@ class CreateSiteInformationsTable extends Migration
             $table->text('description')->nullable();
             $table->timestamps();
         });
-
-        $data = [
-            [
-                'title' => 'Create Projects',
-                'color' => 'green',
-                'description' => 'Curabitur quamtis etsum lacus etsumis nulatis iaculis etsum vitae etsum ets nisle varius.',
-                'icon' => 'la-tasks'
-            ],
-            [
-                'title' => 'Manage Your Team',
-                'color' => 'red',
-                'description' => 'Curabitur quamtis etsum lacus etsumis nulatis iaculis etsum vitae etsum ets nisle varius.',
-                'icon' => 'la-gem'
-            ],
-            [
-                'title' => 'Get Notified',
-                'color' => 'blue',
-                'description' => 'Curabitur quamtis etsum lacus etsumis nulatis iaculis etsum vitae etsum ets nisle varius.',
-                'icon' => 'la-bell'
-            ],
-        ];
-
-        foreach ($data as $single){
-            \App\Models\SiteInformation::create($single);
-        }
     }
 
     /**

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <h2 class="pt-2">{{ __('static.what_are_we_doing') }}</h2>
+                <h2 class="pt-2">{{ __('static.what_am_i_doing') }}</h2>
             </div>
             @forelse($site_information as $info)
             <div class="col-md-4">

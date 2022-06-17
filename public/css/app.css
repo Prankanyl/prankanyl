@@ -13,31 +13,6 @@ a:hover {
 }
 /* news page */
 
-.article img{
-    height: 350px;
-    width: 800px;
-    padding-top: 2em;
-    padding-bottom: 2em;
-    padding-left: 16em;
-}
-
-@media (max-width: 1400px) {
-    .article img{
-        height: 330px;
-        width: 650px;
-        margin-left: 50px;
-    }
-}
-
-@media (max-width: 800px) {
-    .article img{
-        height: 200px;
-        width: 350px;
-        padding-top: 0em;
-        padding-left: 0em;
-        margin-bottom: 2em;
-    }
-}
 
 /* what_are_we_doing page */
 

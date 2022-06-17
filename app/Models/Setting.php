@@ -35,17 +35,17 @@ class Setting extends Model
     public function getMutateLogoAttribute()
     {
         if ($this->id == 1){
-            return (null != $this->favicon) ? '/images/static/'.$this->logo : null;
+            return (null != $this->favicon) ? '/images/static/'.$this->logo : '/images/static/logo.png';
         }
-        return (null != $this->logo) ? '/storage/setting/'.$this->logo : null;
+        return (null != $this->logo) ? '/storage/setting/'.$this->logo : '/images/static/logo.png';
     }
 
     public function getMutateFaviconAttribute()
     {
         if ($this->id == 1){
-            return (null != $this->favicon) ? '/images/static/'.$this->favicon : null;
+            return (null != $this->favicon) ? '/images/static/'.$this->favicon : '/images/static/favicon.png';
         }
-        return (null != $this->favicon) ? '/storage/setting/'.$this->favicon : null;
+        return (null != $this->favicon) ? '/storage/setting/'.$this->favicon : '/images/static/favicon.png';
     }
 
     /**

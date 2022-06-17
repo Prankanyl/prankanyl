@@ -19,33 +19,6 @@ class CreateSocialNetworksTable extends Migration
             $table->string('link')->nullable()->default('#');
             $table->timestamps();
         });
-
-        $data = [
-            [
-                'icon' => 'la-facebook',
-                'link' => 'https://www.facebook.com/',
-            ],
-            [
-                'icon' => 'la-telegram',
-                'link' => 'https://www.telegram.org/',
-            ],
-            [
-                'icon' => 'la-google',
-                'link' => 'https://www.google.com/',
-            ],
-            [
-                'icon' => 'la-linkedin',
-                'link' => 'https://www.linkedin.com/',
-            ],
-            [
-                'icon' => 'la-github',
-                'link' => 'https://www.github.com/',
-            ],
-        ];
-
-        foreach ($data as $single){
-            \App\Models\SocialNetwork::create($single);
-        }
     }
 
     /**

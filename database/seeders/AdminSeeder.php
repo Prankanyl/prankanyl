@@ -16,9 +16,16 @@ class AdminSeeder extends Seeder
     {
         if (User::where('email', '=', 'v752433@icloud.com')->doesntExist()) {
             User::forceCreate([
-                'name' => 'Admin',
+                'name' => 'Valera',
                 'email' => 'v752433@icloud.com',
                 'password' => bcrypt('1212')
+            ]);
+        }
+        if (User::where('email', '=', 'admin@admin.com')->doesntExist()) {
+            User::forceCreate([
+                'name' => 'Admin',
+                'email' => 'admin@admin.com',
+                'password' => bcrypt('Qwerty12!')
             ]);
         }
     }

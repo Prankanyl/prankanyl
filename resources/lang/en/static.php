@@ -19,6 +19,7 @@ return [
     'show_more' => 'Show More',
     'show_all' => 'Show all',
     'show_project' => 'Show Project',
+    'show_article' => 'Show Article',
     'articles' => 'Articles',
     'projects' => 'Projects',
     'contacts' => 'Contacts',
@@ -28,7 +29,7 @@ return [
     'background_color' => 'Background color',
     'text_color' => 'Text color',
 
-    'what_are_we_doing' => 'What are we doing?',
+    'what_am_i_doing' => "What I'am doing?",
     'connected_social' => 'Get connected with us on social networks:',
 
     'place' => 'Place',
