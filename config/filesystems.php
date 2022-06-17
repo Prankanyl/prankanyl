@@ -49,6 +49,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'project' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/project'),
+            'url' => '/storage/project',
+            'visibility' => 'public',
+        ],
+
         'development_tool' => [
             'driver' => 'local',
             'root' => storage_path('app/public/development-tool'),

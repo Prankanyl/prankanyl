@@ -29,4 +29,31 @@ class Project extends Model
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
     }
+
+    public function category()
+    {
+        return $this->belongsTo(ProjectCategory::class, 'project_categories_id');
+    }
+
+    public function development_tools()
+    {
+        return $this->belongsToMany(DevelopmentTool::class, 'project_development_tool');
+    }
+
+    public function project_type()
+    {
+        return $this->belongsToMany(ProjectType::class, 'project_project_type');
+    }
+
+    public function getMutateImageAttribute(){
+        return (null != $this->image) ? '/storage/project/'.$this->image : config('default.project');
+    }
+
+    public function getMutateShortDescriptionAttribute(){
+        return str_limit(strip_tags($this->short_description), 235);
+    }
+
+    public function getMutateLongDescriptionAttribute(){
+        return strip_tags($this->long_description);
+    }
 }

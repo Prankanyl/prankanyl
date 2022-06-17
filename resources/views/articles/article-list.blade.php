@@ -6,7 +6,7 @@
 
 @section('content')
     @include('articles.form.add')
-    <div class="container-fluid mt-3">
+    <div class="container-fluid mt-3 mb-3">
         <div class="row">
             <div class="col-lg-2">
                 <div class="list-group">

@@ -21,6 +21,14 @@ Route::group(['prefix' => 'article'], function () {
 
 Route::group(['prefix' => 'project'], function () {
     Route::get('/', [ProjectController::class, 'index'])->name('project-list');
+    Route::get('/sort', [ProjectController::class, 'projectSort'])->name('project-sort-list');
     Route::get('/{category_slug}', [ProjectController::class, 'projectCategory'])->name('project-category-list');
-    Route::get('/{category_slug}/{slug}', [ProjectController::class, 'projectDetail'])->name('project-detail');
+    Route::get('/{type_slug}', [ProjectController::class, 'projectType'])->name('project-type-list');
+    Route::get('/{development_tool_slug}', [ProjectController::class, 'projectDevelopmentTool'])->name('project-development-tool-list');
+    Route::get('/{category_slug}/{project_slug}', [ProjectController::class, 'projectDetail'])->name('project-detail');
+    Route::get('/add/form', [ProjectController::class, 'projectAddFrom'])->name('project-add-form');
+    Route::get('/{category_slug}/{project_slug}/update/form', [ProjectController::class, 'projectUpdateFrom'])->name('project-update-form');
+    Route::post('/add', [ProjectController::class, 'projectAdd'])->name('project-add');
+    Route::put('/{category_slug}/{project_slug}/update', [ProjectController::class, 'projectUpdate'])->name('project-update');
+    Route::delete('/{category_slug}/{project_slug}/delete', [ProjectController::class, 'projectDelete'])->name('project-delete');
 });

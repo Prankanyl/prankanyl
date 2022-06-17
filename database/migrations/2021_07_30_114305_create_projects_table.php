@@ -19,6 +19,8 @@ class CreateProjectsTable extends Migration
             $table->integer('project_categories_id');
             $table->text('short_description');
             $table->text('long_description');
+            $table->string('version');
+            $table->string('image')->nullable();
             $table->boolean('finished')->nullable()->default(0);
             $table->string('slug')->unique();
             $table->timestamps();
