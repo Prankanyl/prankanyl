@@ -18,14 +18,15 @@ class ArticleCategorySeeder extends Seeder
             [
                 'title' => $var = 'Project',
                 'slug' => str_slug($var),
+                'icon' => 'la la-terminal',
             ],
             [
                 'title' => $var = 'News',
-                'slug' => str_slug($var),
+                'icon' => 'la la-globe',
             ],
             [
                 'title' => $var = 'Memes',
-                'slug' => str_slug($var),
+                'icon' => 'la la-baby',
             ],
         ];
 

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Setting;
+use Illuminate\Database\QueryException;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -24,7 +25,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $setting = Setting::where('active', 1)->first();
-        view()->share('setting', $setting);
+        try{
+            $setting = Setting::where('active', 1)->first();
+            view()->share('setting', $setting);
+        }
+        catch (QueryException $e){
+
+        }
     }
 }

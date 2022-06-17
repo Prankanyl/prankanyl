@@ -38,4 +38,13 @@ return [
     'parent' => 'Parent',
     'version' => 'Version',
     'link' => 'Link',
+
+    'btn' => [
+        'add' => 'Add',
+        'update' => 'Update',
+        'delete' => 'Delete',
+        'save' => 'Save',
+        'back' => 'Back',
+        'close' => 'Close',
+    ],
 ];

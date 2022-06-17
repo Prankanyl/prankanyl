@@ -17,6 +17,7 @@ class CreateArticleCategoriesTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
+            $table->string('icon');
             $table->timestamps();
         });
     }

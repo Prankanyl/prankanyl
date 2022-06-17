@@ -12,6 +12,18 @@ use Intervention\Image\Facades\Image;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
+/**
+ * @property integer $id
+ * @property integer $user_id
+ * @property integer $article_category_id
+ * @property string $title
+ * @property string $image
+ * @property string $short_description
+ * @property string $long_description
+ * @property string $place
+ * @property string $color
+ * @property string $slug
+ */
 class Article extends Model
 {
     use CrudTrait, HasFactory, HasSlug;

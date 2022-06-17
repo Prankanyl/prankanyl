@@ -11,7 +11,12 @@ Route::get('/contacts', [HomeController::class, 'contacts'])->name('contacts');
 Route::group(['prefix' => 'article'], function () {
     Route::get('/', [ArticleController::class, 'index'])->name('article-list');
     Route::get('/{category_slug}', [ArticleController::class, 'articleCategory'])->name('article-category-list');
-    Route::get('/{category_slug}/{slug}', [ArticleController::class, 'articleDetail'])->name('article-detail');
+    Route::get('/{category_slug}/{article_slug}', [ArticleController::class, 'articleDetail'])->name('article-detail');
+    Route::get('/add/form', [ArticleController::class, 'articleAddFrom'])->name('article-add-form');
+    Route::get('/{category_slug}/{article_slug}/update/form', [ArticleController::class, 'articleUpdateFrom'])->name('article-update-form');
+    Route::post('/add', [ArticleController::class, 'articleAdd'])->name('article-add');
+    Route::put('/{category_slug}/{article_slug}/update', [ArticleController::class, 'articleUpdate'])->name('article-update');
+    Route::delete('/{category_slug}/{article_slug}/delete', [ArticleController::class, 'articleDelete'])->name('article-delete');
 });
 
 Route::group(['prefix' => 'project'], function () {

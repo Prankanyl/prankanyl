@@ -4,3 +4,6 @@
 /*    margin-bottom: 2em;*/
 /*    transition: all 1s;*/
 /*}*/
+.required-attribute{
+    color: rgb(255, 0, 0);
+}

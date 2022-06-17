@@ -26,12 +26,12 @@ class ArticleRequest extends FormRequest
     public function rules()
     {
         return [
-             'user_id' => 'required|integer',
+             'user_id' => 'nullable|integer',
              'article_category_id' => 'required',
              'title' => 'required|min:5|max:255',
              'image' => 'nullable',
              'short_description' => 'required|min:5|max:1000',
-             'long_description' => 'required|min:5|max:100000',
+             'long_description' => 'nullable|min:5|max:100000',
              'place' => 'nullable',
              'color' => 'nullable',
         ];
