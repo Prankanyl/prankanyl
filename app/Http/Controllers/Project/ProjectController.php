@@ -54,12 +54,14 @@ class ProjectController extends Controller
     public function projectCategory($category_slug)
     {
         $categories = ProjectCategory::get();
+        $types = ProjectType::get();
+        $tools = DevelopmentTool::get();
         $category = ProjectCategory::whereSlug($category_slug)->first();
-        $projects = Project::where('project_category_id', $category->id)
+        $projects = Project::where('project_categories_id', $category->id)
             ->orderByDesc('id')
             ->paginate(9);
 
-        return view('projects.project-list', compact('categories', 'projects'));
+        return view('projects.project-list', compact('categories', 'types', 'tools', 'projects'));
     }
 
     public function projectDetail($category_slug, $project_slug)

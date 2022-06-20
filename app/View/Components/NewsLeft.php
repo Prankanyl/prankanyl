@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use App\Models\Article\Article;
+use App\Models\Project\Project;
 use Illuminate\View\Component;
 
 class NewsLeft extends Component
@@ -25,9 +26,9 @@ class NewsLeft extends Component
      */
     public function render()
     {
-        $article = Article::whereId($this->id)->first();
+        $article = Project::whereId($this->id)->first();
         if(is_null($article)){
-            $article = Article::inRandomOrder()->first();
+            $article = Project::inRandomOrder()->first();
         }
         return view('components.news-left', compact('article'));
     }
