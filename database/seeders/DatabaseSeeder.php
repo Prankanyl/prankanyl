@@ -20,13 +20,18 @@ class DatabaseSeeder extends Seeder
             SocialNetworksSeeder::class,
             AdminSeeder::class,
             ArticleCategorySeeder::class,
-            ArticleSeeder::class,
-
             ProjectCategorySeeder::class,
             ProjectTypeSeeder::class,
             DevelopmentToolSeeder::class,
-            ProjectSeeder::class,
         ]);
+
+        if(env('APP_ENV') == 'local'){
+            // faker
+            $this->call([
+                ArticleSeeder::class,
+                ProjectSeeder::class,
+            ]);
+        }
 
         $arr_random = [];
         for($i = 1; $i <= 12; $i++){
