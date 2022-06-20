@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -13,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/get-articles/{article_slug?}', [ApiController::class, 'getArticles'])->name('get-articles');
+Route::get('/get-projects/{project_slug?}', [ApiController::class, 'getProjects'])->name('get-projects');
+//Route::group(['middleware' => 'auth:api'], function (){
+//
+//});

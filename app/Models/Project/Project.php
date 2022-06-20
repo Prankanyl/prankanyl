@@ -42,7 +42,7 @@ class Project extends Model
 
     public function project_type()
     {
-        return $this->belongsToMany(ProjectType::class, 'project_project_type');
+        return $this->belongsToMany(ProjectType::class, 'project_project_type', 'project_types_id', 'project_id');
     }
 
     public function getMutateImageAttribute(){

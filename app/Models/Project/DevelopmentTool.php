@@ -32,6 +32,14 @@ class DevelopmentTool extends Model
             ->saveSlugsTo('slug');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function parent()
+    {
+        return $this->belongsTo(DevelopmentTool::class, 'parent_id');
+    }
+
     public function getMutateLogoAttribute()
     {
         return (null != $this->logo) ? $this->logo : null;

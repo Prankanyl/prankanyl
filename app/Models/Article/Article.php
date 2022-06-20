@@ -2,6 +2,7 @@
 
 namespace App\Models\Article;
 
+use App\Models\User;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -42,7 +43,7 @@ class Article extends Model
     // protected $hidden = [];
     // protected $dates = [];
 
-    protected $with = ['category'];
+    protected $with = ['category', 'user'];
 
     /**
      * @return SlugOptions
@@ -59,6 +60,13 @@ class Article extends Model
      */
     public function category(){
         return $this->belongsTo(ArticleCategory::class, 'article_category_id', 'id');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     /**
